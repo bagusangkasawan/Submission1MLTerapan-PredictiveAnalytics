@@ -46,13 +46,13 @@ Dataset yang digunakan berasal dari [Kaggle - Obesity Level Prediction Dataset](
 
 **Visualisasi:**
 - Distribusi Kategori Obesitas
-  ![Distribusi Kategori Obesitas](images/countplot.png)
+![Distribusi Kategori Obesitas](images/countplot.png)
 
 - Korelasi Antar Fitur Numerik
-  ![Heatmap Korelasi](images/heatmap.png)
+![Heatmap Korelasi](images/heatmap.png)
 
 - Hubungan Antar Fitur Numerik (Pairplot)
-  ![Pairplot Fitur](images/pairplot.png)
+![Pairplot Fitur](images/pairplot.png)
 
 ## Data Preparation
 
