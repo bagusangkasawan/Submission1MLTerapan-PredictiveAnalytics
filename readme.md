@@ -144,7 +144,10 @@ Setelah tuning, performa model tetap sangat tinggi:
  [ 0  0  0 29]]
 ```
 
-### Kesimpulan Evaluasi:
-Model **Random Forest** terbukti paling efektif dalam mengklasifikasikan tingkat obesitas berdasarkan data personal dan aktivitas fisik, ditunjukkan dengan akurasi 99.5% dan F1-score yang sangat tinggi di seluruh kategori.  
-Metrik evaluasi menunjukkan bahwa model tidak hanya akurat secara keseluruhan (Accuracy tinggi), tetapi juga konsisten dalam mengidentifikasi masing-masing kelas obesitas dengan presisi dan recall yang baik.  
-Dengan hasil ini, model dapat diandalkan sebagai alat prediksi obesitas yang cepat dan akurat untuk mendukung upaya pencegahan penyakit terkait.
+**Kesimpulan Evaluasi:**
+- Model **Random Forest** terbukti paling efektif dalam mengklasifikasikan tingkat obesitas berdasarkan data personal dan aktivitas fisik.
+- Model mencapai **akurasi sebesar 99.5%** dan **F1-score yang sangat tinggi** di seluruh kategori obesitas.
+- Metrik evaluasi menunjukkan:
+  - **Accuracy** tinggi, menandakan performa prediksi secara keseluruhan sangat baik.
+  - **Precision** dan **Recall** tinggi di semua kelas, menunjukkan model mampu mengidentifikasi kategori obesitas dengan konsisten dan minim kesalahan.
+- Dengan hasil ini, **model dapat diandalkan sebagai alat prediksi obesitas** yang cepat dan akurat untuk mendukung upaya pencegahan penyakit terkait obesitas.
