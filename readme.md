@@ -73,27 +73,22 @@ Metrik evaluasi:
 - **Accuracy**: Skor akurasi total.
 
 ### Formula Metrik:
-- **Accuracy**: Persentase prediksi yang benar dibandingkan dengan total data. Dihitung dengan rumus:  
-  \[
-  \text{Accuracy} = \frac{\text{True Positives} + \text{True Negatives}}{\text{Total Samples}}
-  \]
+- **Accuracy**: Persentase prediksi yang benar dibandingkan dengan total data.  
+  Formula:  
+  `Accuracy = (True Positives + True Negatives) / Total Samples`
 
-- **Precision**: Mengukur akurasi dari prediksi yang positif. Formula:  
-  \[
-  \text{Precision} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Positives}}
-  \]
-  Precision tinggi berarti bahwa ketika model memprediksi kelas positif, itu cenderung benar.
+- **Precision**: Mengukur akurasi dari prediksi yang positif.  
+  Formula:  
+  `Precision = True Positives / (True Positives + False Positives)`
 
-- **Recall (Sensitivity)**: Mengukur seberapa baik model menangkap kelas positif yang sesungguhnya. Formula:  
-  \[
-  \text{Recall} = \frac{\text{True Positives}}{\text{True Positives} + \text{False Negatives}}
-  \]
-  Recall tinggi berarti model tidak melewatkan banyak kasus positif.
+- **Recall (Sensitivity)**: Mengukur seberapa baik model menangkap kelas positif yang sesungguhnya.  
+  Formula:  
+  `Recall = True Positives / (True Positives + False Negatives)`
 
-- **F1-Score**: Rata-rata harmonis dari Precision dan Recall, memberikan gambaran yang lebih lengkap tentang performa model, terutama jika data tidak seimbang. Formula:  
-  \[
-  \text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
-  \]
+- **F1-Score**: Rata-rata harmonis dari Precision dan Recall.  
+  Formula:  
+  `F1-Score = 2 * (Precision * Recall) / (Precision + Recall)`
+
   
 ### Hasil Evaluasi Sebelum Tuning:
 | Model               | Akurasi |
