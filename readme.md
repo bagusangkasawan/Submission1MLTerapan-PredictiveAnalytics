@@ -45,14 +45,16 @@ Dataset yang digunakan berasal dari [Kaggle - Obesity Level Prediction Dataset](
 - Korelasi kuat antara `Weight` dan `BMI` ditemukan.
 
 **Visualisasi:**
+- Distribusi Kategori Obesitas
 
-- Distribusi Kategori Obesitas  
 ![Distribusi Kategori Obesitas](images/countplot.png)
 
-- Korelasi Antar Fitur Numerik  
+- Korelasi Antar Fitur Numerik
+
 ![Heatmap Korelasi](images/heatmap.png)
 
-- Hubungan Antar Fitur Numerik (Pairplot)  
+- Hubungan Antar Fitur Numerik (Pairplot)
+ 
 ![Pairplot Fitur](images/pairplot.png)
 
 ## Data Preparation
