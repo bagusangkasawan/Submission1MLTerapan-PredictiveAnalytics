@@ -103,25 +103,48 @@ Metrik evaluasi yang digunakan:
   Formula:  
   `F1-Score = 2 * (Precision * Recall) / (Precision + Recall)`
 
-### Hasil Evaluasi:
+### Hasil Evaluasi Awal
 
-| Model               | Akurasi |
-|---------------------|---------|
-| Logistic Regression | 0.97    |
-| Random Forest       | 0.995   |
-| SVM                 | 0.93    |
+Tiga model dibandingkan, yaitu Logistic Regression, Random Forest, dan Support Vector Machine (SVM).
 
-Dari hasil tersebut, **Random Forest** menonjol dengan akurasi 99.5% yang hampir sempurna, sedangkan **Logistic Regression** tetap kuat di 97%, dan **SVM** sedikit tertinggal di 93%.
+| Model               | Precision | Recall | F1-Score | Akurasi |
+|---------------------|-----------|--------|----------|---------|
+| Logistic Regression | 0.97      | 0.96   | 0.97     | 0.97    |
+| Random Forest       | 1.00      | 0.99   | 0.99     | 0.995   |
+| SVM                 | 0.94      | 0.92   | 0.93     | 0.93    |
 
-**Confusion Matrix Random Forest (sebelum tuning):**
-```
-[[74  0  0  0]
- [ 0 37  1  0]
- [ 0  0 59  0]
- [ 0  0  0 29]]
-```
+**Confusion Matrix:**
 
-Tabel ini menunjukkan bahwa Random Forest mampu mengklasifikasikan hampir seluruh kategori obesitas dengan benar, dengan kesalahan prediksi yang sangat minim.
+- **Logistic Regression**
+  ```
+  [[74  0  0  0]
+   [ 0 37  1  0]
+   [2  0 57  0]
+   [3  0  0 26]]
+  ```
+- **Random Forest**
+  ```
+  [[74  0  0  0]
+   [0 37  1  0]
+   [0  0 59  0]
+   [0  0  0 29]]
+  ```
+- **SVM**
+  ```
+  [[69  0  4  1]
+   [0 37  1  0]
+   [2  1 56  0]
+   [5  0  0 24]]
+  ```
+
+### Analisis Perbandingan Model
+
+- **Random Forest** menunjukkan performa terbaik di semua metrik, dengan akurasi hampir sempurna (99.5%), precision dan recall tinggi, serta error yang sangat minim.
+- **Logistic Regression** juga berkinerja baik, namun terdapat kesalahan klasifikasi pada kelas "Underweight" dan "Obesity".
+- **SVM** menunjukkan performa yang cukup baik namun sedikit lebih rendah dibandingkan dua model lainnya, terutama pada prediksi kelas "Underweight".
+
+**Kesimpulan:**  
+Random Forest dipilih sebagai model utama untuk tahap tuning lebih lanjut karena menghasilkan performa terbaik dibandingkan model lainnya.
 
 ### Tuning dan Evaluasi Random Forest
 
