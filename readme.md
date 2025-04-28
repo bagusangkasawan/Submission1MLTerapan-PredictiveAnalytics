@@ -48,18 +48,15 @@ Dataset yang digunakan berasal dari [Kaggle - Obesity Level Prediction Dataset](
 
 1. **Distribusi Kategori Obesitas**  
    ![Distribusi Kategori Obesitas](images/countplot.png)  
-   **Penjelasan:**
-   Plot batang di atas menunjukkan distribusi kategori obesitas dalam dataset. Terlihat bahwa kategori 'Normal weight' dan 'Overweight' memiliki jumlah data yang paling banyak, sementara kategori 'Underweight' memiliki jumlah data yang paling sedikit. Hal ini mengindikasikan bahwa dataset mungkin sedikit tidak seimbang.
+   **Penjelasan:** Plot batang di atas menunjukkan distribusi kategori obesitas dalam dataset. Terlihat bahwa kategori 'Normal weight' dan 'Overweight' memiliki jumlah data yang paling banyak, sementara kategori 'Underweight' memiliki jumlah data yang paling sedikit. Hal ini mengindikasikan bahwa dataset mungkin sedikit tidak seimbang.
 
 2. **Korelasi Antar Fitur Numerik**  
    ![Heatmap Korelasi](images/heatmap.png)  
-   **Penjelasan:**
-   Heatmap di atas memvisualisasikan korelasi antar fitur numerik dalam dataset. Dari heatmap, dapat dilihat bahwa terdapat korelasi positif yang kuat antara 'Weight' dan 'BMI', yang sesuai dengan definisi BMI yang dihitung berdasarkan berat badan dan tinggi badan. Beberapa fitur lainnya juga menunjukkan korelasi, meskipun tidak sekuat antara 'Weight' dan 'BMI'.
+   **Penjelasan:** Heatmap di atas memvisualisasikan korelasi antar fitur numerik dalam dataset. Dari heatmap, dapat dilihat bahwa terdapat korelasi positif yang kuat antara 'Weight' dan 'BMI', yang sesuai dengan definisi BMI yang dihitung berdasarkan berat badan dan tinggi badan. Beberapa fitur lainnya juga menunjukkan korelasi, meskipun tidak sekuat antara 'Weight' dan 'BMI'.
 
 3. **Hubungan Antar Fitur Numerik (Pairplot)**  
    ![Pairplot Fitur](images/pairplot.png)  
-   **Penjelasan:**
-   Pairplot di atas menggambarkan hubungan antara beberapa fitur numerik dan kategori obesitas. Terlihat bahwa individu dengan 'Weight' dan 'BMI' yang lebih tinggi cenderung berada pada kategori obesitas yang lebih tinggi. Selain itu, fitur-fitur seperti 'Age', 'Height', dan 'PhysicalActivityLevel' juga menunjukkan variasi yang berbeda di setiap kategori obesitas.
+   **Penjelasan:** Pairplot di atas menggambarkan hubungan antara beberapa fitur numerik dan kategori obesitas. Terlihat bahwa individu dengan 'Weight' dan 'BMI' yang lebih tinggi cenderung berada pada kategori obesitas yang lebih tinggi. Selain itu, fitur-fitur seperti 'Age', 'Height', dan 'PhysicalActivityLevel' juga menunjukkan variasi yang berbeda di setiap kategori obesitas.
 
 ## Data Preparation
 
