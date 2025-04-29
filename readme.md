@@ -23,7 +23,7 @@ Permasalahan ini penting untuk segera diselesaikan, mengingat angka obesitas dun
 
 ### Solution Statements
 - Menggunakan algoritma Logistic Regression, Random Forest, dan SVM untuk membangun model klasifikasi.
-- Melakukan preprocessing dan tuning untuk meningkatkan performa model.
+- Melakukan preprocessing untuk memaksimalkan performa model.
 - Menggunakan classification report, confusion matrix, dan akurasi sebagai metrik evaluasi.
 
 ## Data Understanding
