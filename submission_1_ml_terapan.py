@@ -30,7 +30,7 @@ from sklearn.svm import SVC
 df = pd.read_csv("obesity_data.csv")
 df.head()
 
-"""**Penjelasan:** Membaca data dari file CSV "obesity_data.csv" menggunakan Pandas dan menyimpannya dalam DataFrame bernama df. df.head() menampilkan 5 baris pertama data, yang menunjukkan kolom-kolom seperti 'Gender', 'Age', 'Height', 'Weight', dan 'family_history_with_overweight', serta beberapa kolom lainnya yang berhubungan dengan kebiasaan dan kondisi fisik individu.
+"""**Penjelasan:** Membaca data dari file CSV "obesity_data.csv" menggunakan Pandas dan menyimpannya dalam DataFrame bernama df. df.head() menampilkan 5 baris pertama data, yang menunjukkan kolom-kolom seperti 'Gender', 'Age', 'Height', 'Weight', dan 'BMI', serta beberapa kolom lainnya yang berhubungan dengan kebiasaan dan kondisi fisik individu.
 
 ## Informasi Data
 """
@@ -77,7 +77,7 @@ plt.title("Distribusi Kategori Obesitas")
 plt.xticks(rotation=45)
 plt.show()
 
-"""**Penjelasan:** Membuat plot batang (countplot) untuk memvisualisasikan distribusi kategori obesitas dalam dataset. Dari plot, terlihat bahwa kategori 'Obesity_Type_I' dan 'Obesity_Type_III' memiliki jumlah data yang paling banyak, sedangkan kategori 'Insufficient_Weight' memiliki jumlah data yang paling sedikit. Ini mengindikasikan bahwa dataset mungkin sedikit tidak seimbang."""
+"""**Penjelasan:** Membuat plot batang (countplot) untuk memvisualisasikan distribusi kategori obesitas dalam dataset. Dari plot, terlihat bahwa kategori 'Normal weight' dan 'Overweight' memiliki jumlah data yang paling banyak, sedangkan kategori 'Underweight' memiliki jumlah data yang paling sedikit. Ini mengindikasikan bahwa dataset mungkin sedikit tidak seimbang."""
 
 df_corr = df.drop(columns=['Gender', 'ObesityCategory']).corr()
 
