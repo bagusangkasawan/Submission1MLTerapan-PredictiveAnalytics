@@ -28,23 +28,30 @@ Permasalahan ini penting untuk segera diselesaikan, mengingat angka obesitas dun
 
 ## Data Understanding
 
-Dataset yang digunakan berasal dari [Kaggle - Obesity Level Prediction Dataset](https://www.kaggle.com/datasets/mrsimple07/obesity-prediction).
+### Sumber Dataset
+- [Kaggle - Obesity Level Prediction Dataset](https://www.kaggle.com/datasets/mrsimple07/obesity-prediction)
 
-### Variabel dalam dataset:
-- `Gender` : Jenis kelamin (Male/Female)
-- `Age` : Usia
-- `Height` : Tinggi badan (meter)
-- `Weight` : Berat badan (kg)
-- `BMI` : Body Mass Index
-- `PhysicalActivityLevel` : Tingkat aktivitas fisik
-- `ObesityCategory` : Kategori obesitas (target)
+### Jumlah Data
+- **Jumlah Baris**: 1000 baris
+- **Jumlah Kolom**: 7 kolom
+
+### Kondisi Data
+- **Missing Value**: Tidak ditemukan missing value.
+- **Duplikat**: Tidak ditemukan data duplikat.
+- **Outlier**: Outlier ringan ditemukan terutama pada fitur berat badan (Weight), namun masih dalam batas wajar dan tidak dibuang karena tetap merepresentasikan populasi obesitas.
+
+### Fitur-Fitur pada Dataset
+| Nama Fitur | Tipe Data | Deskripsi |
+|------------|-----------|-----------|
+| Gender | Kategorikal (Male/Female) | Jenis kelamin |
+| Age | Numerik | Usia dalam tahun |
+| Height | Numerik | Tinggi badan (dalam meter) |
+| Weight | Numerik | Berat badan (dalam kilogram) |
+| BMI | Numerik | Indeks Massa Tubuh |
+| PhysicalActivityLevel | Numerik | Skor tingkat aktivitas fisik |
+| ObesityCategory | Kategorikal | Target variabel, kategori tingkat obesitas |
 
 ### Exploratory Data Analysis (EDA)
-- Tidak ada missing value ditemukan.
-- Distribusi kategori `ObesityCategory` cenderung tidak seimbang.
-- Korelasi kuat antara `Weight` dan `BMI` ditemukan.
-
-**Visualisasi:**
 
 1. **Distribusi Kategori Obesitas**  
    ![Distribusi Kategori Obesitas](images/countplot.png)  
@@ -69,17 +76,21 @@ Tahapan ini penting untuk memastikan model dapat bekerja optimal, khususnya mode
 
 ## Modeling
 
-Model yang digunakan:
-1. **Logistic Regression**
-2. **Random Forest Classifier**
-3. **Support Vector Machine (SVM)**
+### Algoritma yang Digunakan
 
-**Keterangan:**
-- Logistic Regression dijadikan baseline model.
-- Random Forest dipilih karena kekuatannya dalam menangani data kompleks dan mengurangi overfitting.
-- SVM digunakan untuk menangani klasifikasi dengan margin maksimal.
+1. **Logistic Regression**  
+   - Cara kerja: Algoritma ini mengasumsikan hubungan linier antara input dan log-odds dari target. Logistic Regression mengoutput probabilitas kelas.
+   - Parameter: Default parameter (tanpa modifikasi).
 
-Dalam hal ini, **Random Forest** dipilih sebagai model terbaik karena memberikan akurasi tertinggi (99.5%) bahkan sebelum tuning. Meskipun Logistic Regression juga memberikan performa yang sangat baik dengan akurasi 97%, Random Forest lebih stabil dalam menangani kompleksitas data dan dapat mengurangi kemungkinan overfitting dengan banyaknya pohon yang digunakan.
+2. **Random Forest Classifier**  
+   - Cara kerja: Ensemble learning yang membangun banyak decision tree dari subset data yang berbeda dan menggabungkannya untuk meningkatkan akurasi dan mengurangi overfitting.
+   - Parameter: Default (`n_estimators=100`, `max_depth=None`, `random_state=42`).
+
+3. **Support Vector Machine (SVM)**  
+   - Cara kerja: SVM mencoba menemukan hyperplane terbaik yang memisahkan berbagai kelas dengan margin maksimal.
+   - Parameter: Default (`C=1.0`, `kernel='rbf'`).
+
+Dalam hal ini, **Random Forest** dipilih sebagai model terbaik karena memberikan akurasi tertinggi (99.5%). Meskipun Logistic Regression juga memberikan performa yang sangat baik dengan akurasi 97%, Random Forest lebih stabil dalam menangani kompleksitas data dan dapat mengurangi kemungkinan overfitting dengan banyaknya pohon yang digunakan.
 
 ## Evaluation
 
@@ -106,7 +117,7 @@ Metrik evaluasi yang digunakan:
   Formula:  
   `F1-Score = 2 * (Precision * Recall) / (Precision + Recall)`
 
-### Hasil Evaluasi Awal
+### Hasil Evaluasi Model
 
 Tiga model dibandingkan, yaitu Logistic Regression, Random Forest, dan Support Vector Machine (SVM).
 
@@ -146,34 +157,10 @@ Tiga model dibandingkan, yaitu Logistic Regression, Random Forest, dan Support V
 - **Logistic Regression** juga berkinerja baik, namun terdapat kesalahan klasifikasi pada kelas "Underweight" dan "Obesity".
 - **SVM** menunjukkan performa yang cukup baik namun sedikit lebih rendah dibandingkan dua model lainnya, terutama pada prediksi kelas "Underweight".
 
-**Kesimpulan:**  
-Random Forest dipilih sebagai model utama untuk tahap tuning lebih lanjut karena menghasilkan performa terbaik dibandingkan model lainnya.
+### Kesimpulan Evaluasi
 
-### Tuning dan Evaluasi Random Forest
-
-Dilakukan tuning pada:
-- `n_estimators = 200`
-- `max_depth = 10`
-- `random_state = 42`
-
-Setelah tuning, performa model tetap sangat tinggi:
-
-- **Accuracy**: 0.995
-- **F1-score**: Nyaris sempurna di semua kategori.
-- **Confusion Matrix**: Tidak ada perubahan signifikan; model tetap mengklasifikasikan hampir seluruh data dengan akurat.
-
-**Confusion Matrix Tuned Random Forest:**
-```
-[[74  0  0  0]
- [ 0 37  1  0]
- [ 0  0 59  0]
- [ 0  0  0 29]]
-```
-
-**Kesimpulan Evaluasi:**
-- Model **Random Forest** terbukti paling efektif dalam mengklasifikasikan tingkat obesitas berdasarkan data personal dan aktivitas fisik.
-- Model mencapai **akurasi sebesar 99.5%** dan **F1-score yang sangat tinggi** di seluruh kategori obesitas.
-- Metrik evaluasi menunjukkan:
-  - **Accuracy** tinggi, menandakan performa prediksi secara keseluruhan sangat baik.
-  - **Precision** dan **Recall** tinggi di semua kelas, menunjukkan model mampu mengidentifikasi kategori obesitas dengan konsisten dan minim kesalahan.
-- Dengan hasil ini, **model dapat diandalkan sebagai alat prediksi obesitas** yang cepat dan akurat untuk mendukung upaya pencegahan penyakit terkait obesitas.
+- Model **Random Forest** terbukti paling efektif untuk klasifikasi tingkat obesitas, dengan akurasi sangat tinggi dan kesalahan prediksi yang minimal.
+- Model yang dibangun telah **menjawab problem statement**, yaitu mampu mengklasifikasikan tingkat obesitas seseorang berdasarkan data personal dan aktivitas fisik secara akurat.
+- **Goal** yang ditetapkan dalam Business Understanding telah **berhasil dicapai**, yaitu menghasilkan model dengan presisi dan konsistensi tinggi untuk semua kategori obesitas.
+- **Solution statement** yang direncanakan terbukti **berdampak positif**, karena model mampu memberikan prediksi yang dapat digunakan dalam sistem monitoring kesehatan untuk mendukung upaya pencegahan obesitas.
+- Secara keseluruhan, model ini **selaras dengan kebutuhan bisnis**, yaitu menyediakan alat prediksi obesitas yang cepat, akurat, dan dapat diandalkan untuk aplikasi praktis di dunia nyata.

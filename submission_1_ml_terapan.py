@@ -42,7 +42,32 @@ df.info()
 
 df.isnull().sum()
 
-"""**Penjelasan:** Mengecek apakah ada data yang hilang (missing values) di setiap kolom DataFrame. Output menunjukkan bahwa semua kolom memiliki 0 missing values, yang berarti dataset lengkap.
+"""**Penjelasan:** Mengecek apakah ada data yang hilang (missing values) di setiap kolom DataFrame. Output menunjukkan bahwa semua kolom memiliki 0 missing values, yang berarti dataset lengkap."""
+
+duplicate_rows = df[df.duplicated()]
+print(f"Jumlah baris duplikat: {duplicate_rows.shape[0]}")
+
+"""**Penjelasan:** Mengecek dan menghitung jumlah baris duplikat dalam dataset. Output menunjukkan tidak ada baris yang teridentifikasi sebagai duplikat."""
+
+def detect_outliers_iqr(data):
+    Q1 = np.percentile(data, 25)
+    Q3 = np.percentile(data, 75)
+    IQR = Q3 - Q1
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
+    outliers = data[(data < lower_bound) | (data > upper_bound)].index.tolist()
+    return outliers
+
+outliers_age = detect_outliers_iqr(df['Age'])
+outliers_height = detect_outliers_iqr(df['Height'])
+outliers_weight = detect_outliers_iqr(df['Weight'])
+outliers_bmi = detect_outliers_iqr(df['BMI'])
+
+all_outliers = list(set(outliers_age + outliers_height + outliers_weight + outliers_bmi))
+
+print(f"Jumlah outlier: {len(all_outliers)}")
+
+"""**Penjelasan:** Mendeteksi outlier pada fitur numerik ('Age', 'Height', 'Weight', 'BMI') menggunakan metode Interquartile Range (IQR). Ditemukan 26 outlier, terutama pada fitur berat badan (Weight). Meskipun demikian, outlier ini masih dalam batas wajar dan tidak dibuang karena tetap merepresentasikan populasi obesitas dalam dataset.
 
 ## Visualisasi Data
 """
@@ -123,15 +148,4 @@ evaluate_model(y_test, y_pred_log, "Logistic Regression")
 evaluate_model(y_test, y_pred_rf, "Random Forest")
 evaluate_model(y_test, y_pred_svm, "SVM")
 
-"""**Penjelasan:** Mengevaluasi performa setiap model menggunakan classification report, akurasi, dan confusion matrix. Fungsi evaluate_model() didefinisikan untuk menampilkan hasil evaluasi. Dari hasil evaluasi, terlihat bahwa model Random Forest memiliki performa yang paling baik, dengan akurasi tertinggi dan skor F1-score yang baik di semua kategori.
-
-## Tuning dan Evaluasi Random Forest
-"""
-
-best_rf = RandomForestClassifier(n_estimators=200, max_depth=10, random_state=42)
-best_rf.fit(X_train, y_train)
-y_pred_best_rf = best_rf.predict(X_test)
-
-evaluate_model(y_test, y_pred_best_rf, "Tuned Random Forest")
-
-"""**Penjelasan:** Melakukan tuning parameter pada model Random Forest dan mengevaluasi performanya kembali. Parameter n_estimators dan max_depth diubah untuk mencoba meningkatkan performa model."""
+"""**Penjelasan:** Mengevaluasi performa setiap model menggunakan classification report, akurasi, dan confusion matrix. Fungsi evaluate_model() didefinisikan untuk menampilkan hasil evaluasi. Dari hasil evaluasi, terlihat bahwa model Random Forest memiliki performa yang paling baik, dengan akurasi tertinggi dan skor F1-score yang baik di semua kategori."""
