@@ -157,10 +157,10 @@ Tiga model dibandingkan, yaitu Logistic Regression, Random Forest, dan Support V
 - **Logistic Regression** juga berkinerja baik, namun terdapat kesalahan klasifikasi pada kelas "Underweight" dan "Obesity".
 - **SVM** menunjukkan performa yang cukup baik namun sedikit lebih rendah dibandingkan dua model lainnya, terutama pada prediksi kelas "Underweight".
 
-### Kesimpulan Evaluasi
+### **Kesimpulan Evaluasi (Berbasis Metrik)**
 
-- Model **Random Forest** terbukti paling efektif untuk klasifikasi tingkat obesitas, dengan akurasi sangat tinggi dan kesalahan prediksi yang minimal.
-- Model yang dibangun telah **menjawab problem statement**, yaitu mampu mengklasifikasikan tingkat obesitas seseorang berdasarkan data personal dan aktivitas fisik secara akurat.
-- **Goal** yang ditetapkan dalam Business Understanding telah **berhasil dicapai**, yaitu menghasilkan model dengan presisi dan konsistensi tinggi untuk semua kategori obesitas.
-- **Solution statement** yang direncanakan terbukti **berdampak positif**, karena model mampu memberikan prediksi yang dapat digunakan dalam sistem monitoring kesehatan untuk mendukung upaya pencegahan obesitas.
-- Secara keseluruhan, model ini **selaras dengan kebutuhan bisnis**, yaitu menyediakan alat prediksi obesitas yang cepat, akurat, dan dapat diandalkan untuk aplikasi praktis di dunia nyata.
+- Model **Random Forest** terbukti paling efektif untuk klasifikasi tingkat obesitas berdasarkan metrik evaluasi, dengan **akurasi sangat tinggi (99.5%)**, menunjukkan bahwa hampir semua prediksi dilakukan dengan benar dan hanya terdapat kesalahan minimal.
+- Model yang dibangun telah **menjawab problem statement** dengan baik berdasarkan nilai **precision (1.00)**, karena model mampu memprediksi kategori obesitas secara tepat tanpa menghasilkan banyak kesalahan prediksi positif.
+- **Goal** dalam Business Understanding berhasil **dicapai** karena model menunjukkan **konsistensi antara precision dan recall yang tinggi**, dibuktikan dengan **F1-score sebesar 0.99**, yang menandakan keseimbangan sangat baik dalam mendeteksi semua kelas obesitas secara akurat.
+- **Solution statement** terbukti **berdampak positif**, karena model memiliki **recall sebesar 0.99**, yang berarti mampu menangkap hampir seluruh data kategori obesitas yang sebenarnya, sehingga sangat mendukung sistem monitoring untuk pencegahan obesitas.
+- Secara keseluruhan, model ini **selaras dengan kebutuhan bisnis**, karena berdasarkan **confusion matrix**, kesalahan klasifikasi sangat minim, menjadikannya **alat prediksi yang cepat, akurat, dan dapat diandalkan** untuk aplikasi praktis di dunia nyata, terutama dalam konteks kesehatan masyarakat.
